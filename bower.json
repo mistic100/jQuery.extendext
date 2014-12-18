@@ -1,5 +1,5 @@
 {
-  "name": "jQuery.extend-enhanced",
+  "name": "jquery-extendext",
   "version": "0.1.0",
   "description": "jQuery.extend with configurable behaviour for arrays",
   "authors": [{
@@ -7,14 +7,14 @@
     "email": "contact@git.strangeplanet.fr",
     "homepage": "http://www.strangeplanet.fr"
   }],
-  "main": "jQuery.extend-enchanced.js",
+  "main": "jQuery.extendext.js",
   "keywords": [
     "jQuery",
     "extend",
     "arrays"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/mistic100/jQuery.extend-enhanced",
+  "homepage": "https://github.com/mistic100/jQuery.extendext",
   "dependencies": {
     "jquery": ">=1.9.1"
   },

@@ -1,10 +1,5 @@
 module('$.extend-enhanced');
 
-test('Function loaded', function() {
-  ok($.extend != $.fn.extend, 'Don\'t modify "fn.extend"');
-  ok($._original_extend == $.fn.extend, 'Store "_original_extend"');
-});
-
 test('New modes', function() {
   var a, b, o;
 
@@ -23,7 +18,7 @@ test('New modes', function() {
     quux: 5
   };
 
-  deepEqual($.extend(true, 'extend', a, b), o, 'extend');
+  deepEqual($.extendext(true, 'extend', a, b), o, 'extend');
 
   a = {
     foo: { bar: 3 },
@@ -38,7 +33,7 @@ test('New modes', function() {
     array: [1, 2, 4, 1, 4, 5]
   };
 
-  deepEqual($.extend(true, 'concat', a, b), o, 'concat');
+  deepEqual($.extendext(true, 'concat', a, b), o, 'concat');
 
   a = {
     foo: { bar: 3 },
@@ -53,5 +48,5 @@ test('New modes', function() {
     array: [4, 5]
   };
 
-  deepEqual($.extend(true, 'replace', a, b), o, 'replace');
+  deepEqual($.extendext(true, 'replace', a, b), o, 'replace');
 });

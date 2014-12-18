@@ -1,5 +1,5 @@
 /*!
- * jQuery.extend-enhanced
+ * jQuery.extendext
  *
  * Copyright 2014 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -10,9 +10,7 @@
 (function($){
   "use strict";
 
-  jQuery._original_extend = jQuery.extend;
-
-  jQuery.extend = function() {
+  jQuery.extendext = function() {
     var options, name, src, copy, copyIsArray, clone,
       target = arguments[0] || {},
       i = 1,
@@ -56,18 +54,18 @@
 
           switch (arrayMode) {
           case 'concat':
-            target = clone.concat( jQuery.extend( deep, 'default', [], options ) );
+            target = clone.concat( jQuery.extend( deep, [], options ) );
             break;
 
           case 'replace':
-            target = jQuery.extend( deep, 'default', [], options );
+            target = jQuery.extend( deep, [], options );
             break;
 
           case 'extend':
             options.forEach(function(e, i) {
               if (typeof e === 'object') {
                 var type = jQuery.isArray(e) ? [] : {};
-                clone[i] = jQuery.extend( deep, arrayMode, clone[i] || type, e );
+                clone[i] = jQuery.extendext( deep, arrayMode, clone[i] || type, e );
 
               } else if (clone.indexOf(e) === -1) {
                 clone.push(e);
@@ -102,7 +100,7 @@
               }
 
               // Never move original objects, clone them
-              target[ name ] = jQuery.extend( deep, arrayMode, clone, copy );
+              target[ name ] = jQuery.extendext( deep, arrayMode, clone, copy );
 
             // Don't bring in undefined values
             } else if ( copy !== undefined ) {

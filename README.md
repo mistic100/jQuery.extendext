@@ -1,6 +1,6 @@
-# jQuery.extend-enhanced
+# jQuery.extendext
 
-[![Bower version](https://badge.fury.io/bo/jQuery.extend-enhanced.svg)](http://badge.fury.io/bo/jQuery.extend-enhanced)
+[![Bower version](https://badge.fury.io/bo/jquery-extendext.svg)](http://badge.fury.io/bo/jquery-extendext)
 
 jQuery.extend with configurable behaviour for arrays.
 
@@ -26,12 +26,12 @@ Other deep merging utilities I found either have the same behaviour or perform b
 
 ## Usage
 
-When loading **jQuery.extend-enhanced.js** the default `$.extend` function will be replaced by my own implementation with the exact same behaviour if not additional config is provided.
+**jQuery.extendext.js** contains a new `$.extendext` function with the exact same behaviour as `$.extend` if not additional config is provided.
 
 The difference is that it accepts a optional second string argument to specify how arrays should be merged.
 
 ```js
-jQuery.extend([deep ,][arrayMode ,] target, object1 [, objectN ] )
+jQuery.extendext([deep ,][arrayMode ,] target, object1 [, objectN ] )
 ```
 
 * **deep** _boolean_ — If true, the merge becomes recursive (aka. deep copy).
@@ -53,7 +53,7 @@ var config = {
   operators: ['OR', 'XOR']
 };
 
-config = $.extend(true, 'replace', {}, DEFAULTS, config);
+config = $.extendext(true, 'replace', {}, DEFAULTS, config);
 
 assert.deepEqual(config, {
   operators: ['OR', 'XOR']
@@ -73,7 +73,7 @@ var config = {
   operators: ['OR', 'XOR']
 };
 
-config = $.extend(true, 'concat', {}, DEFAULTS, config);
+config = $.extendext(true, 'concat', {}, DEFAULTS, config);
 
 assert.deepEqual(config, {
   operators: ['AND', 'OR', 'XOR', 'OR', 'XOR']
@@ -96,7 +96,7 @@ var config = {
   operators: ['XOR', 'NAND']
 };
 
-config = $.extend(true, 'extend', {}, DEFAULTS, config);
+config = $.extendext(true, 'extend', {}, DEFAULTS, config);
 
 assert.deepEqual(config, {
   operators: ['AND', 'OR', 'XOR', 'NAND']
@@ -105,7 +105,7 @@ assert.deepEqual(config, {
 
 ### "default" mode
 
-Same as if the parameter is not provided.
+Same as `$.extend`.
 
 ```js
 var DEFAULTS = {
@@ -116,9 +116,15 @@ var config = {
   operators: ['OR', 'XOR']
 };
 
-config = $.extend(true, 'default', {}, DEFAULTS, config);
+config = $.extendext(true, 'default', {}, DEFAULTS, config);
 
 assert.deepEqual(config, {
   operators: ['OR', 'XOR', 'XOR']
 }) // true;
 ```
+
+## Tests
+
+A QUnit test suite is provided in `tests` directory.
+
+`$.extendext` is tested against core jQuery tests for `$.extend` and `nrf110/deepmerge` tests (with the difference that extendext, like extend, modifies the first argument where deepmerge does not touch it).

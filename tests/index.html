@@ -20,7 +20,8 @@
   <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="../bower_components/qunit/qunit/qunit.js"></script>
 
-  <script src="../jQuery.extend-enhanced.js"></script>
+  <script src="../jQuery.extendext.js"></script>
+  <script>$.extend = $.extendext; // for the tests</script>
 
   <script src="tests.js"></script>
   <script src="jquery-core-tests.js"></script>
