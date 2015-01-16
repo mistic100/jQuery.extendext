@@ -1,5 +1,5 @@
 /*!
- * jQuery.extendext
+ * jQuery.extendext 0.1.0
  *
  * Copyright 2014 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -7,10 +7,17 @@
  * Based on jQuery.extend by jQuery Foundation, Inc. and other contributors
  */
 
-(function($){
+(function(root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        define(['jquery'], factory);
+    }
+    else {
+        factory(root.jQuery);
+    }
+}(this, function($) {
   "use strict";
 
-  jQuery.extendext = function() {
+  $.extendext = function() {
     var options, name, src, copy, copyIsArray, clone,
       target = arguments[0] || {},
       i = 1,
@@ -28,14 +35,14 @@
 
     // Handle array mode parameter
     if ( typeof target === "string" ) {
-      arrayMode = jQuery([target.toLowerCase(), 'default']).filter(['default','concat','replace','extend'])[0];
+      arrayMode = $([target.toLowerCase(), 'default']).filter(['default','concat','replace','extend'])[0];
 
       // Skip the string param
       target = arguments[ i++ ] || {};
     }
 
     // Handle case when target is a string or something (possible in deep copy)
-    if ( typeof target !== "object" && !jQuery.isFunction(target) ) {
+    if ( typeof target !== "object" && !$.isFunction(target) ) {
       target = {};
     }
 
@@ -49,23 +56,23 @@
       // Only deal with non-null/undefined values
       if ( (options = arguments[ i ]) != null ) {
         // Special operations for arrays
-        if (jQuery.isArray(options) && arrayMode != 'default') {
-          clone = target && jQuery.isArray(target) ? target : [];
+        if ($.isArray(options) && arrayMode != 'default') {
+          clone = target && $.isArray(target) ? target : [];
 
           switch (arrayMode) {
           case 'concat':
-            target = clone.concat( jQuery.extend( deep, [], options ) );
+            target = clone.concat( $.extend( deep, [], options ) );
             break;
 
           case 'replace':
-            target = jQuery.extend( deep, [], options );
+            target = $.extend( deep, [], options );
             break;
 
           case 'extend':
             options.forEach(function(e, i) {
               if (typeof e === 'object') {
-                var type = jQuery.isArray(e) ? [] : {};
-                clone[i] = jQuery.extendext( deep, arrayMode, clone[i] || type, e );
+                var type = $.isArray(e) ? [] : {};
+                clone[i] = $.extendext( deep, arrayMode, clone[i] || type, e );
 
               } else if (clone.indexOf(e) === -1) {
                 clone.push(e);
@@ -88,19 +95,19 @@
             }
 
             // Recurse if we're merging plain objects or arrays
-            if ( deep && copy && ( jQuery.isPlainObject(copy) ||
-              (copyIsArray = jQuery.isArray(copy)) ) ) {
+            if ( deep && copy && ( $.isPlainObject(copy) ||
+              (copyIsArray = $.isArray(copy)) ) ) {
 
               if ( copyIsArray ) {
                 copyIsArray = false;
-                clone = src && jQuery.isArray(src) ? src : [];
+                clone = src && $.isArray(src) ? src : [];
 
               } else {
-                clone = src && jQuery.isPlainObject(src) ? src : {};
+                clone = src && $.isPlainObject(src) ? src : {};
               }
 
               // Never move original objects, clone them
-              target[ name ] = jQuery.extendext( deep, arrayMode, clone, copy );
+              target[ name ] = $.extendext( deep, arrayMode, clone, copy );
 
             // Don't bring in undefined values
             } else if ( copy !== undefined ) {
@@ -115,4 +122,4 @@
     return target;
   };
 
-}(jQuery));
+}));
