@@ -1,11 +1,13 @@
 /*!
- * jQuery.extendext 0.1.0
+ * jQuery.extendext 0.1.1
  *
  * Copyright 2014 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
  * Licensed under MIT (http://opensource.org/licenses/MIT)
  * 
  * Based on jQuery.extend by jQuery Foundation, Inc. and other contributors
  */
+
+/*jshint -W083 */
 
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -54,9 +56,9 @@
 
     for ( ; i < length; i++ ) {
       // Only deal with non-null/undefined values
-      if ( (options = arguments[ i ]) != null ) {
+      if ( (options = arguments[ i ]) !== null ) {
         // Special operations for arrays
-        if ($.isArray(options) && arrayMode != 'default') {
+        if ($.isArray(options) && arrayMode !== 'default') {
           clone = target && $.isArray(target) ? target : [];
 
           switch (arrayMode) {
@@ -121,5 +123,4 @@
     // Return the modified object
     return target;
   };
-
 }));
