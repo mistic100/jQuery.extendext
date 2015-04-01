@@ -11,6 +11,10 @@
   "dependencies": {
     "jquery": ">=1.9.1"
   },
+  "devDependencies": {
+    "blanket": "^1.1.0",
+    "qunit": "^1.17.0"
+  },
   "keywords": [
     "jQuery",
     "extend",
