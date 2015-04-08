@@ -21,5 +21,17 @@
     "arrays"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/mistic100/jQuery.extendext"
+  "homepage": "https://github.com/mistic100/jQuery.extendext",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mistic100/jQuery.extendext.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests",
+    "package.json",
+    "Gruntfile.js"
+  ]
 }
