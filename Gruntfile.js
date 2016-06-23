@@ -65,7 +65,7 @@ module.exports = function(grunt) {
                 force: true
             },
             all: {
-                src: '.coverage-results/all.lcov',
+                src: '.coverage-results/all.lcov'
             }
         }
     });
