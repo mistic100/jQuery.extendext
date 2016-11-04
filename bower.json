@@ -1,6 +1,5 @@
 {
   "name": "jquery-extendext",
-  "version": "0.1.2",
   "description": "jQuery.extend with configurable behaviour for arrays",
   "authors": [{
     "name": "Damien \"Mistic\" Sorel",
