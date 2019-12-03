@@ -1,5 +1,4 @@
-/bower_components
 /node_modules
-/.coverage-results
 /.idea
 /*.iml
+yarn.lock

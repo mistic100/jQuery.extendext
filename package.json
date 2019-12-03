@@ -1,23 +1,24 @@
 {
   "name": "jquery-extendext",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "jQuery.extend with configurable behaviour for arrays",
-  "authors": [{
-    "name": "Damien \"Mistic\" Sorel",
-    "email": "contact@git.strangeplanet.fr",
-    "homepage": "http://www.strangeplanet.fr"
-  }],
-  "main": "jQuery.extendext.js",
+  "authors": [
+    {
+      "name": "Damien \"Mistic\" Sorel",
+      "email": "contact@git.strangeplanet.fr",
+      "homepage": "http://www.strangeplanet.fr"
+    }
+  ],
+  "main": "jquery-extendext.js",
+  "files": [
+    "jquery-extendext.js"
+  ],
   "dependencies": {
     "jquery": ">=1.9.1"
   },
   "devDependencies": {
-    "grunt": "~1.0.0",
-    "grunt-contrib-qunit": "~0.7.0",
-    "grunt-contrib-uglify": "~1.0.0",
-    "grunt-contrib-jshint": "~1.0.0",
-    "grunt-qunit-blanket-lcov": "~0.3.1",
-    "grunt-coveralls": "~1.0.0"
+    "jest": "^24.9.0",
+    "jest-expect-message": "^1.0.2"
   },
   "keywords": [
     "jQuery",
@@ -34,6 +35,6 @@
     "url": "https://github.com/mistic100/jQuery.extendext/issues"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "jest tests/*.spec.js"
   }
 }

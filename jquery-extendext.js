@@ -1,13 +1,11 @@
 /*!
- * jQuery.extendext 0.1.2
+ * jQuery.extendext 1.0.0
  *
- * Copyright 2014-2016 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
+ * Copyright 2014-2019 Damien "Mistic" Sorel (http://www.strangeplanet.fr)
  * Licensed under MIT (http://opensource.org/licenses/MIT)
  * 
  * Based on jQuery.extend by jQuery Foundation, Inc. and other contributors
  */
-
-/*jshint -W083 */
 
 (function (root, factory) {
     if (typeof define === 'function' && define.amd) {
@@ -94,25 +92,27 @@
                 } else {
                     // Extend the base object
                     for (name in options) {
-                        src = target[name];
                         copy = options[name];
 
                         // Prevent never-ending loop
-                        if (target === copy) {
+                        if (name === '__proto__' || target === copy) {
                             continue;
                         }
 
                         // Recurse if we're merging plain objects or arrays
                         if (deep && copy && ( $.isPlainObject(copy) ||
                             (copyIsArray = $.isArray(copy)) )) {
+                            src = target[name];
 
-                            if (copyIsArray) {
-                                copyIsArray = false;
-                                clone = src && $.isArray(src) ? src : [];
-
+                            // Ensure proper type for the source value
+                            if ( copyIsArray && !Array.isArray( src ) ) {
+                                clone = [];
+                            } else if ( !copyIsArray && !$.isPlainObject( src ) ) {
+                                clone = {};
                             } else {
-                                clone = src && $.isPlainObject(src) ? src : {};
+                                clone = src;
                             }
+                            copyIsArray = false;
 
                             // Never move original objects, clone them
                             target[name] = $.extendext(deep, arrayMode, clone, copy);

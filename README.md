@@ -3,7 +3,6 @@
 [![npm version](https://img.shields.io/npm/v/jquery-extendext.svg?style=flat-square)](https://www.npmjs.com/package/jquery-extendext)
 [![jsDelivr CDN](https://data.jsdelivr.com/v1/package/npm/jquery-extendext/badge)](https://www.jsdelivr.com/package/npm/jquery-extendext)
 [![Build Status](https://github.com/mistic100/jQuery.extendext/workflows/CI/badge.svg)](https://github.com/mistic100/jQuery.extendext/actions)
-[![Coverage Status](https://coveralls.io/repos/mistic100/jQuery.extendext/badge.svg)](https://coveralls.io/r/mistic100/jQuery.extendext)
 
 jQuery.extend with configurable behaviour for arrays.
 
@@ -128,6 +127,6 @@ assert.deepEqual(config, {
 
 ## Tests
 
-A QUnit test suite is provided in `tests` directory.
+A jest test suite is provided in `tests` directory.
 
 `$.extendext` is tested against core jQuery tests for `$.extend` and `nrf110/deepmerge` tests (with the difference that extendext, like extend, modifies the first argument where deepmerge does not touch it).
