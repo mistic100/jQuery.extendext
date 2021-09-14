@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 const $ = require('jquery');
 require('../jquery-extendext');
 

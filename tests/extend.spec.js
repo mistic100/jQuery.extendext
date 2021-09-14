@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 require('jest-expect-message');
 
 const $ = require('jquery');
